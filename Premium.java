@@ -12,7 +12,7 @@ public class Premium extends Subscription {
         super (userId, plan);
         LocalDateTime currentDateTime = LocalDateTime.now ();
         super.setStartDate (currentDateTime);
-        super.getMonth (currentDateTime, this.price);
+        super.getMonth (currentDateTime, PREMIUM_PRICE);
 
     }
 
