@@ -81,6 +81,7 @@ public class User {
     }
 
     public void watchMovie(int movieIndex){
+        MovieList.arr.get(movieIndex).increaseViews();
         historyMovies.add(MovieList.arr.get(movieIndex));
         System.out.println("movie is watched successfully!");
     }
