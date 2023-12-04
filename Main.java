@@ -210,7 +210,7 @@ public class Main {
                 u1.userMenu();
 
                 choice=input.nextInt ();
-                if(choice==7)
+                if(choice==9)
                     break;
                 else if(choice==1)  // watch movie
                 {
@@ -246,6 +246,13 @@ public class Main {
                 }
                 else if(choice == 6){       // search
                     u1.recursiveSearch();
+                }
+                else if(choice == 7){       // most viewed movies
+                    u1.mostWatchedMovies();
+                }
+                else if(choice == 8){       // delete user
+                    u1.deleteUser(userIndex);
+                    break;
                 }
 
             }
