@@ -144,8 +144,8 @@ public abstract class Subscription {
 
             if(maxi<=month[i])
             {
-               maxi=month[i];
-               monthNum=i;
+                maxi=month[i];
+                monthNum=i;
             }
         }
         if (maxi != 0) {
