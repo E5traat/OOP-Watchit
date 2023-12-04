@@ -7,8 +7,8 @@ public class UserList {
 
     public int addUser(User u, String planInput)
     {
+        u.subscription = planInput;
         arr.add(u);
-
         if (planInput.contains("1")){
             Basic basicPlan = new Basic(u.getID(), "Basic");
             Basic.addSubscription(basicPlan);
@@ -25,10 +25,18 @@ public class UserList {
     }
 
 
-    public void deleteUser(int id)
+    public void deleteUser(int index)
     {
-        User user = UserList.arr.get(id - 1);
-        arr.remove(arr.get(id));
+
+        if (UserList.arr.get(index).subscription.equals("Basic")) {
+            Basic.deleteSubscription(UserList.arr.get(index).getID());
+        } else if (UserList.arr.get(index).subscription.equals("Standard")) {
+            Standard.deleteSubscription(UserList.arr.get(index).getID());
+        } else if (UserList.arr.get(index).subscription.equals("Premium")) {
+            Premium.deleteSubscription(UserList.arr.get(index).getID());
+        }
+        UserWatchRecordList.removeRecords(UserList.arr.get(index).ID);
+        arr.remove(index);
     }
 
     public int userExist(String username , String password)
@@ -61,7 +69,11 @@ public class UserList {
     }
 
 
+public void mostWatchedMovies(){
+    for (Movie movie : MovieList.arr){
 
+    }
+}
 
 
 
@@ -76,7 +88,9 @@ public class UserList {
         System.out.println ("\t\t[4] show watch later");
         System.out.println ("\t\t[5] see movie details");
         System.out.println ("\t\t[6] search ");
-        System.out.println ("\t\t[7] log out ");
+        System.out.println("\t\t[7] most viewed movies");
+        System.out.println("\t\t[8] delete user");
+        System.out.println ("\t\t[9] log out ");
         System.out.println();
     }
 
