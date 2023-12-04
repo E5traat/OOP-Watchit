@@ -2,66 +2,94 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class AdminList {
-Scanner input = new Scanner (System.in);
+    Scanner input = new Scanner (System.in);
     ArrayList<Admin> arrAdmin = new ArrayList<> ();
-    public AdminList()
-    {
-        Admin a = new Admin("admin","admin","zaid","hany"
-        ,"zaidhany112@gmail.com");
-        arrAdmin.add(a);
+
+    public AdminList() {
+        Admin a = new Admin ("admin", "admin", "zaid", "hany"
+                , "zaidhany112@gmail.com");
+        arrAdmin.add (a);
 
 
     }
-    public boolean adminExist(String username , String password)
-    {
-        for (Admin ad:arrAdmin) {
-            if(ad.getUsername ().equals (username) && ad.getPassword ().equals (password))
+
+    public boolean adminExist(String username, String password) {
+        for (Admin ad : arrAdmin) {
+            if (ad.getUsername ().equals (username) && ad.getPassword ().equals (password))
                 return true;
 
         }
         return false;
     }
-     public void adminMenu()
-     {
-         System.out.println ();
-         System.out.println ();
-         System.out.println ();
-         System.out.println ();
-         System.out.println ("\t\t[1] Movies");
-         System.out.println ("\t\t[2] Cast");
-         System.out.println ("\t\t[3] Directors");
-         System.out.println ("\t\t[4] Add new admin");
-         System.out.println ("\t\t[5] Log out");
 
-     }
+    public void adminGeneralMenu() {
+        System.out.println ();
+        System.out.println ();
+        System.out.println ();
+        System.out.println ();
+        System.out.println ("\t\t[1] Movies");
+        System.out.println ("\t\t[2] Cast");
+        System.out.println ("\t\t[3] Directors");
+        System.out.println ("\t\t[4] Admin");
+        System.out.println ("\t\t[5] Log out");
 
-    public void newAdmin()
-    {
+    }
+
+    public void adminMenu() {
+
+        System.out.println ("\t\there are the admin funcionalities");
+        System.out.println ("\tselect one of the operations below");
+        System.out.println ();
+        System.out.println ("[1] New admin\t[2] See the most month had revnue");
+        System.out.println ("[3] Most subscribed plan\t[4] See all admins");
+        System.out.println ("[5] Back");
+
+    }
+
+    public void displayAllAdmins() {
+        while (true) {
+            System.out.println ("\t\tAll admins of the system");
+            for (int i = 0; i < arrAdmin.size (); i++) {
+                System.out.println ("[" + (i + 1) + "]" + arrAdmin.get (i).getUsername ());
+            }
+            System.out.println ("select back to return again");
+            System.out.println ("[1] Back");
+            int choice = input.nextInt ();
+            if (choice == 1)
+                break;
+            else {
+                System.out.println ("\t\t invalid operation");
+                System.out.println ("\tplease select only the operation below");
+                continue;
+            }
+        }
+    }
+
+
+    public void newAdmin() {
         System.out.println ("please fullfill the required details");
         System.out.println ();
         System.out.println ("Enter username");
         String username = input.next ();
         System.out.println ("Enter password");
-        String password = input.next();
+        String password = input.next ();
         System.out.println ("Enter first name");
-        String fName = input.next();
+        String fName = input.next ();
         System.out.println ("Enter last name");
-        String lname = input.next();
+        String lname = input.next ();
         System.out.println ("Enter your email");
-        String email = input.next();
-        Admin a = new Admin (username,password,fName,lname,email);
+        String email = input.next ();
+        Admin a = new Admin (username, password, fName, lname, email);
         addAdmin (a);
 
     }
 
-    public void addAdmin (Admin a)
-    {
-        arrAdmin.add(a);
+    public void addAdmin(Admin a) {
+        arrAdmin.add (a);
     }
 
-    public void deleteAdmin (int index)
-    {
-        arrAdmin.remove (arrAdmin.get(index));
+    public void deleteAdmin(int index) {
+        arrAdmin.remove (arrAdmin.get (index));
     }
 
     @Override
