@@ -110,24 +110,30 @@ public abstract class Subscription {
     }
 
     public static void mostSuscribedPlan() {
-        System.out.println ("\t\tThese all are subscribtions");
-        System.out.println ();
-        System.out.print ("Basic = " + Basic.arrBasic.size () + "\t");
-        System.out.print ("Standard = " + Standard.arrStandard.size () + "\t");
-        System.out.print ("Premuim = " + Premium.arrPremium.size ());
-        System.out.println ();
-        if (Basic.arrBasic.size () == Standard.arrStandard.size () &&
-                Basic.arrBasic.size () == Premium.arrPremium.size ()) {
-            System.out.println ("All plans are equal in number of subsctiptions");
-        } else if (Basic.arrBasic.size () >= Standard.arrStandard.size () &&
-                Basic.arrBasic.size () >= Premium.arrPremium.size ()) {
-            System.out.println ("Basic is the most subscribed plan");
-        } else if (Standard.arrStandard.size () >= Basic.arrBasic.size () &&
-                Standard.arrStandard.size () >= Premium.arrPremium.size ()) {
-            System.out.println ("Standard is the most subscribed plan");
-        } else if (Premium.arrPremium.size () >= Basic.arrBasic.size () &&
-                Premium.arrPremium.size () >= Standard.arrStandard.size ()) {
-            System.out.println ("Premium is the most subscribed plan");
+
+        if (Basic.arrBasic.size () == 0 && Standard.arrStandard.size () == 0
+                && Premium.arrPremium.size () == 0) {
+            System.out.println ("\t\t there is no subscribtions till now");
+        } else {
+            System.out.println ("\t\tThese all are subscribtions");
+            System.out.println ();
+            System.out.print ("Basic = " + Basic.arrBasic.size () + "\t");
+            System.out.print ("Standard = " + Standard.arrStandard.size () + "\t");
+            System.out.print ("Premuim = " + Premium.arrPremium.size ());
+            System.out.println ();
+            if (Basic.arrBasic.size () == Standard.arrStandard.size () &&
+                    Basic.arrBasic.size () == Premium.arrPremium.size ()) {
+                System.out.println ("All plans are equal in number of subsctiptions");
+            } else if (Basic.arrBasic.size () >= Standard.arrStandard.size () &&
+                    Basic.arrBasic.size () >= Premium.arrPremium.size ()) {
+                System.out.println ("Basic is the most subscribed plan");
+            } else if (Standard.arrStandard.size () >= Basic.arrBasic.size () &&
+                    Standard.arrStandard.size () >= Premium.arrPremium.size ()) {
+                System.out.println ("Standard is the most subscribed plan");
+            } else if (Premium.arrPremium.size () >= Basic.arrBasic.size () &&
+                    Premium.arrPremium.size () >= Standard.arrStandard.size ()) {
+                System.out.println ("Premium is the most subscribed plan");
+            }
         }
     }
 
@@ -136,10 +142,13 @@ public abstract class Subscription {
         for (int i = 0; i < 13; i++) {
             maxi = max (maxi, month[i]);
         }
-        System.out.print ("Month " + maxi + " had the most revnue ");
-        System.out.print ("to the application");
-        System.out.println ();
-
+        if (maxi != 0) {
+            System.out.print ("Month " + maxi + " had the most revnue ");
+            System.out.print ("to the application");
+            System.out.println ();
+        } else {
+            System.out.println ("\t\tthere is no revnue till now");
+        }
     }
 
     public static void updateSubscribtion(int userId, String oldSub, String newSub) {
