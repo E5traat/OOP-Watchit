@@ -1,4 +1,7 @@
+import java.util.Scanner;
+
 public class Admin {
+    Scanner input = new Scanner (System.in);
     public static int number_of_admins = 0;
     private int id;
     private String username;
@@ -69,7 +72,29 @@ public class Admin {
         this.id = number_of_admins;
     }
 
-
+ public void adminDetails()
+ { while(true) {
+     System.out.println ("Admin{" +
+             "id=" + id +
+             ", username='" + username + '\'' +
+             ", password='" + password + '\'' +
+             ", firstName='" + firstName + '\'' +
+             ", lastName='" + lastName + '\'' +
+             ", email='" + email + '\'' +
+             '}');
+     System.out.println ();
+     System.out.println ("\t\tselect back to return");
+     System.out.println ("\t[1] Back");
+     int num =input.nextInt();
+     if(num==1)
+         break;
+     else
+     {
+         System.out.println ("\t\tinvalid operation");
+         System.out.println ("\t\tplease enter [1] to back");
+     }
+ }
+ }
     @Override
     public String toString() {
         return "Admin{" +
