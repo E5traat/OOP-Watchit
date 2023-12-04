@@ -1,48 +1,60 @@
-import java.util.ArrayList;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
-public class UserWatchRecordList {
-    static ArrayList<UserWatchRecord> watchRecords = new ArrayList<> ();
+public class UserWatchRecord {
+    private int userID;
+    private String movieName;
+    private String movieWatchDate;
+    private float movieRating;
 
-    public void addRecord(UserWatchRecord r) {
-        watchRecords.add (r);
+    public UserWatchRecord(int userID, String movieName) {
+        this.userID = userID;
+        this.movieName = movieName;
+        this.movieRating = 0.0f;
+        LocalDateTime currentDateTime = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        this.movieWatchDate = currentDateTime.format(formatter);
     }
 
-    public void removeRecords(int ID) {
-        for (int i = 0; i < watchRecords.size (); i++) {
-            if (watchRecords.get (i).getUserID () == ID) {
-                watchRecords.remove (watchRecords.get (i));
-            }
-        }
+    public int getUserID() {
+        return userID;
     }
 
-    static public float updateRating(int ID, String movieName, float rate) {
-        for (UserWatchRecord watchRecord : watchRecords) {
-            if (watchRecord.getUserID () == ID && watchRecord.getMovieName ().equals (movieName)) {
-                watchRecord.setMovieRating (rate);
-                break;
-            }
-        }
-           return movieRate (movieName);
+    public void setUserID(int id) {
+        userID = id;
     }
 
-    public static float movieRate(String title) {
-        float sumRates = 0.0f;
-        float counter = 0;
-        for (UserWatchRecord watchRecord : watchRecords) {
-            if (watchRecord.getMovieName ().equals (title)) {
-                if (watchRecord.getMovieRating () != 0.0f) {
-                    sumRates += watchRecord.getMovieRating ();
-                    counter++;
-
-                }
-            }
-
-        }
-        if (counter != 0)
-            return sumRates / counter;
-        else
-            return 0.0f;
+    public String getMovieName() {
+        return movieName;
     }
 
+    public void setMovieName(String name) {
+        movieName = name;
+    }
 
+    public String getMovieWatchDate() {
+        return movieWatchDate;
+    }
+
+    public void setMovieWatchDate(String date) {
+        movieWatchDate = date;
+    }
+
+    public float getMovieRating() {
+        return movieRating;
+    }
+
+    public void setMovieRating(float rating) {
+        movieRating = rating;
+    }
+
+    @Override
+    public String toString() {
+        return "UserWatchRecord{" +
+                "userID=" + userID +
+                ", movieName='" + movieName + '\'' +
+                ", movieWatchDate='" + movieWatchDate + '\'' +
+                ", movieRating=" + movieRating +
+                '}';
+    }
 }
