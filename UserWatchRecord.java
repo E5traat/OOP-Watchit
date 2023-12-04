@@ -48,4 +48,13 @@ public class UserWatchRecord {
         movieRating = rating;
     }
 
+    @Override
+    public String toString() {
+        return "UserWatchRecord{" +
+                "userID=" + userID +
+                ", movieName='" + movieName + '\'' +
+                ", movieWatchDate='" + movieWatchDate + '\'' +
+                ", movieRating=" + movieRating +
+                '}';
+    }
 }
