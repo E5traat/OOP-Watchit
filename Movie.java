@@ -14,10 +14,13 @@ public class Movie {
     private ArrayList<String> arrGenre = new ArrayList<>();
     private ArrayList<String> arrLanguage = new ArrayList<String>();
     private ArrayList<Cast> arrCast = new ArrayList<Cast>();
+    private int views;
 
 
     //poster
 
+    public int getViews(){ return views;}
+    public void increaseViews(){ views++;}
     public int getId() {
         return id;
     }
