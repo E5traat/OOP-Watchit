@@ -15,14 +15,14 @@ public class UserWatchRecordList {
         }
     }
 
-    static public void updateRating(int ID, String movieName, float rate) {
+    static public float updateRating(int ID, String movieName, float rate) {
         for (UserWatchRecord watchRecord : watchRecords) {
             if (watchRecord.getUserID () == ID && watchRecord.getMovieName ().equals (movieName)) {
                 watchRecord.setMovieRating (rate);
                 break;
             }
         }
-
+           return movieRate (movieName);
     }
 
     public static float movieRate(String title) {
@@ -43,6 +43,6 @@ public class UserWatchRecordList {
         else
             return 0.0f;
     }
-    
+
 
 }
