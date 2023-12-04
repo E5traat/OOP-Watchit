@@ -42,7 +42,8 @@ public class AdminList {
         System.out.println ();
         System.out.println ("[1] New admin\t[2] See the most month had revnue");
         System.out.println ("[3] Most subscribed plan\t[4] See all admins");
-        System.out.println ("[5] Back");
+        System.out.println ("[5] Update admin\t[6] Delete admin");
+        System.out.println ("[7] See admin details\t[8] Back");
 
     }
 
@@ -63,6 +64,74 @@ public class AdminList {
                 continue;
             }
         }
+    }
+
+    public void diplayAdmins()
+    {
+        System.out.println ("\t\tAll admins of the system");
+        for (int i = 0; i < arrAdmin.size (); i++) {
+            System.out.println ("[" + (i + 1) + "]" + arrAdmin.get (i).getUsername ());
+        }
+    }
+
+    public void updateAdminMenu(int index)
+    {  while(true) {
+        //username password firstName lastName email
+        System.out.println ("\tWhich one of informations do you want to update it");
+        System.out.println ();
+        System.out.println ("[1] Username\t[2] Password");
+        System.out.println ("[3] First name\t[4] Last name");
+        System.out.println ("[5] Email\t[6]back");
+        int choice = input.nextInt ();
+        if (choice==6)
+            break;
+        else if(choice<1 && choice>6)
+        {
+            System.out.println ("\t\tinvalid operation");
+            System.out.println ("\tselect one of the operations below");
+            System.out.println ();
+        }
+        else
+        {
+           updateAdmin (choice,index);
+        }
+    }
+
+    }
+    public void updateAdmin(int choice , int index)
+    {
+        if(choice==1)
+        {
+            System.out.println ("Write the new username");
+            String s =input.next ();
+            arrAdmin.get (index-1).setUsername (s);
+        }
+        else if(choice==2)
+        {
+            System.out.println ("Write the new password");
+            String s =input.next ();
+            arrAdmin.get (index-1).setPassword (s);
+        }
+        else if(choice==3)
+        {
+            System.out.println ("Write the new first name");
+            String s =input.next ();
+            arrAdmin.get (index-1).setFirstName (s);
+        }
+        else if(choice==4)
+        {
+            System.out.println ("Write the new last name");
+            String s =input.next ();
+            arrAdmin.get (index-1).setLastName (s);
+        }
+        else if(choice==5)
+        {
+            System.out.println ("Write the new email");
+            String s =input.next ();
+            arrAdmin.get (index-1).setFirstName (s);
+        }
+        System.out.println ("\t\t updated successfully");
+
     }
 
 
@@ -89,7 +158,7 @@ public class AdminList {
     }
 
     public void deleteAdmin(int index) {
-        arrAdmin.remove (arrAdmin.get (index));
+        arrAdmin.remove (arrAdmin.get (index-1));
     }
 
     @Override
