@@ -7,6 +7,14 @@ public class UserWatchRecordList {
         watchRecords.add(r);
     }
 
+    public void removeRecords(int ID){
+        for (int i = 0; i < watchRecords.size(); i++) {
+            if(watchRecords.get(i).getUserID() == ID){
+                watchRecords.remove(watchRecords.get(i));
+            }
+        }
+    }
+
     static public void updateRating(int ID,String movieName,float rate){
         for (UserWatchRecord watchRecord : watchRecords) {
             if (watchRecord.getUserID() == ID && watchRecord.getMovieName().equals(movieName)) {
@@ -15,12 +23,14 @@ public class UserWatchRecordList {
         }
     }
 
-    public void removeRecords(int ID){
-        for (int i = 0; i < watchRecords.size(); i++) {
-            if(watchRecords.get(i).getUserID() == ID){
-                watchRecords.remove(watchRecords.get(i));
+    static public float returnRate(int ID,String movieName){
+        for (UserWatchRecord watchRecord : watchRecords) {
+            if (watchRecord.getUserID() == ID && watchRecord.getMovieName().equals(movieName)) {
+                return watchRecord.getMovieRating ();
             }
         }
+
+
+
+
     }
-    
-}
