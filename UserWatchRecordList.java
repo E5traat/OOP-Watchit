@@ -15,21 +15,34 @@ public class UserWatchRecordList {
         }
     }
 
-    static public void updateRating(int ID, String movieName, float rate) {
+    static public float updateRating(int ID, String movieName, float rate) {
         for (UserWatchRecord watchRecord : watchRecords) {
             if (watchRecord.getUserID () == ID && watchRecord.getMovieName ().equals (movieName)) {
                 watchRecord.setMovieRating (rate);
+                break;
             }
         }
+           return movieRate (movieName);
     }
 
-    static public float returnRate(int ID, String movieName) {
+    public static float movieRate(String title) {
+        float sumRates = 0.0f;
+        float counter = 0;
         for (UserWatchRecord watchRecord : watchRecords) {
-            if (watchRecord.getUserID () == ID && watchRecord.getMovieName ().equals (movieName)) {
-                return watchRecord.getMovieRating ();
-            }
-        }
+            if (watchRecord.getMovieName ().equals (title)) {
+                if (watchRecord.getMovieRating () != 0.0f) {
+                    sumRates += watchRecord.getMovieRating ();
+                    counter++;
 
-        return 0.0f;
+                }
+            }
+
+        }
+        if (counter != 0)
+            return sumRates / counter;
+        else
+            return 0.0f;
     }
+
+
 }
