@@ -1,11 +1,11 @@
 public class Admin {
-public static int number_of_admins = 0;
-private int id ;
-private String username;
-private String password;
-private String firstName;
-private String lastName;
-private String email;
+    public static int number_of_admins = 0;
+    private int id;
+    private String username;
+    private String password;
+    private String firstName;
+    private String lastName;
+    private String email;
 
     public static int getNumber_of_admins() {
         return number_of_admins;
@@ -66,8 +66,9 @@ private String email;
         this.lastName = lastName;
         this.email = email;
         number_of_admins++;
-        this.id=number_of_admins;
+        this.id = number_of_admins;
     }
+
 
     @Override
     public String toString() {
