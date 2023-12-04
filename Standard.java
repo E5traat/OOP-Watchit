@@ -1,14 +1,14 @@
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
-public class Standard extends Subscription {
+public class Premium extends Subscription {
 
-    public static final int STANDARD_PRICE = 35;
-    public static final int MAX_WATCH = 10;
-    public static ArrayList<Subscription> arrStandard = new ArrayList<> ();
+    public static final int PREMIUM_PRICE = 50;
+    public static final int MAX_WATCH = 30;
+    public static ArrayList<Subscription> arrPremium = new ArrayList<> ();
 
 
-    public Standard(int userId, String plan) {
+    public Premium(int userId, String plan) {
         super (userId, plan);
         LocalDateTime currentDateTime = LocalDateTime.now ();
         super.setStartDate (currentDateTime);
@@ -16,14 +16,14 @@ public class Standard extends Subscription {
 
     }
 
-    public static void addSubscription(Standard sc) {
-        arrStandard.add (sc);
+    public static void addSubscription(Premium sc) {
+        arrPremium.add (sc);
     }//end of method
 
     public static void deleteSubscription(int userId) {
-        for (int i = 0; i < arrStandard.size (); i++) {
-            if (arrStandard.get (i).getUserId () == userId) {
-                arrStandard.remove (i);
+        for (int i = 0; i < arrPremium.size (); i++) {
+            if (arrPremium.get (i).getUserId () == userId) {
+                arrPremium.remove (i);
                 break;
             }
 
@@ -38,10 +38,10 @@ public class Standard extends Subscription {
     }
 
     public boolean subDays(int userId) {
-        for (int i = 0; i < arrStandard.size (); i++) {
-            if (arrStandard.get (i).getUserId () == userId) {
+        for (int i = 0; i < arrPremium.size (); i++) {
+            if (arrPremium.get (i).getUserId () == userId) {
                 int differnce = Subscription.getDifferenceDays
-                        (arrStandard.get (i).getStartDate ());
+                        (arrPremium.get (i).getStartDate ());
                 if (differnce <= 30)
                     return true;
                 else
