@@ -82,30 +82,40 @@ public abstract class Subscription {
         return daysDifference;
     }
 
-    public static void subscribeAgain(int userId, int Price, String Plan) {
+    public static void subscribeAgain(int userIndex) {
         LocalDateTime currentDateTime = LocalDateTime.now ();
         int monthValue = currentDateTime.getMonthValue ();
-        month[monthValue] += Price;
+        int userId = UserList.arr.get (userIndex).getID ();
+        String Plan = UserList.arr.get (userIndex).getSubscription ();
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern ("yyyy-MM-dd");
         String newDate = currentDateTime.format (formatter);
         if (Plan.equals ("Basic")) {
             for (int i = 0; i < Basic.arrBasic.size (); i++) {
-                if (Basic.arrBasic.get (i).getUserId () == userId)
+                if (Basic.arrBasic.get (i).getUserId () == userId) {
                     Basic.arrBasic.get (i).setStartDate (newDate);
+                    month[monthValue] += Basic.BASIC_PRICE;
+                }
             }
         } else if (Plan.equals ("Standard")) {
             for (int i = 0; i < Standard.arrStandard.size (); i++) {
-                if (Standard.arrStandard.get (i).getUserId () == userId)
+                if (Standard.arrStandard.get (i).getUserId () == userId) {
                     Standard.arrStandard.get (i).setStartDate (newDate);
-
-
+                    month[monthValue] += Standard.STANDARD_PRICE;
+                }
             }
         } else {
             for (int i = 0; i < Premium.arrPremium.size (); i++) {
-                if (Premium.arrPremium.get (i).getUserId () == userId)
+                if (Premium.arrPremium.get (i).getUserId () == userId) {
                     Premium.arrPremium.get (i).setStartDate (newDate);
+                    month[monthValue] += Premium.PREMIUM_PRICE;
+
+                }
             }
+        }
+        while (UserList.arr.get (userIndex).historyMovies.size () != 0) {
+            UserList.arr.get (userIndex).historyMovies.remove
+                    (UserList.arr.get (userIndex).historyMovies.size () - 1);
         }
     }
 
@@ -139,19 +149,18 @@ public abstract class Subscription {
 
     public static void monthMostRevnue() {
         int maxi = -1;
-        int monthNum =0;
+        int monthNum = 0;
         for (int i = 0; i < 13; i++) {
 
-            if(maxi<=month[i])
-            {
-                maxi=month[i];
-                monthNum=i;
+            if (maxi <= month[i]) {
+                maxi = month[i];
+                monthNum = i;
             }
         }
         if (maxi != 0) {
-            System.out.print ("Month " +monthNum  + " had the most revnue ");
+            System.out.print ("Month " + monthNum + " had the most revnue ");
             System.out.print ("to the application");
-            System.out.println ();
+            System.out.println ("revnue = " + month[monthNum]);
         } else {
             System.out.println ("\t\tthere is no revnue till now");
         }
@@ -217,7 +226,9 @@ public abstract class Subscription {
         System.out.println ("start date of subscription : " + this.startDate);
     }
 
-    public abstract boolean maxWatch(ArrayList arr);
+    public boolean maxWatch(ArrayList arr) {
+        return false;
+    }
 
     public abstract boolean subDays(int userId);
 }
