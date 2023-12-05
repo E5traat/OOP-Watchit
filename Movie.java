@@ -14,10 +14,19 @@ public class Movie {
     private ArrayList<String> arrGenre = new ArrayList<>();
     private ArrayList<String> arrLanguage = new ArrayList<String>();
     private ArrayList<Cast> arrCast = new ArrayList<Cast>();
-    private int views;
+    private int views = 0;
+    private float rateWatchit = 0.0f;
 
 
     //poster
+
+    public float getRateWatchit() {
+        return rateWatchit;
+    }
+
+    public void setRateWatchit(float rateWatchit) {
+        this.rateWatchit = rateWatchit;
+    }
 
     public int getViews(){ return views;}
     public void increaseViews(){ views++;}
@@ -136,15 +145,16 @@ public class Movie {
     public void displayMovieDetails() {
         System.out.println ("Title : " + this.title);
         System.out.println ("ID : " + this.id);
-        System.out.println ("Release  date :" + this.releaseDate);
+        System.out.println ("Release  date : " + this.releaseDate);
         System.out.println ("Running time : " + this.runningTime);
-        if(this.director==null){
-            System.out.println("Director: will be update soon");
-        }
-        System.out.println ("Director : " + this.director);
+        System.out.println ("Imdb score : " + this.imdbScore);
+        System.out.println ("Rate on Watchit : " + this.getRateWatchit ());
         System.out.println ("Country : " + this.country);
         System.out.println ("budget : " + this.budget);
         System.out.println ("revenue : " + this.revenue);
+        if(this.director==null){
+            System.out.println("Director: will be update soon");
+        }
         if (arrCast.isEmpty()) {
             System.out.println ("Cast : " + "will be updated soon");
         } else {
