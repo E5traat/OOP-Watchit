@@ -93,7 +93,7 @@ public class AdminList {
         }
         else
         {
-           updateAdmin (choice,index);
+            updateAdmin (choice,index);
         }
     }
 
