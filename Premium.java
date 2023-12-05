@@ -16,6 +16,10 @@ public class Premium extends Subscription {
 
     }
 
+    public Premium() {
+
+    }
+
     public static void addSubscription(Premium sc) {
         arrPremium.add (sc);
     }//end of method
