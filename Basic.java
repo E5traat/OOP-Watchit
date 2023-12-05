@@ -17,6 +17,10 @@ public class Basic extends Subscription {
 
     }
 
+    public Basic() {
+
+    }
+
     public static void addSubscription(Basic sc) {
         arrBasic.add (sc);
     }//end of method
@@ -31,7 +35,7 @@ public class Basic extends Subscription {
         }
     }//end of method
 
-    public boolean maxWatch(ArrayList arr) {
+    public  boolean maxWatch(ArrayList arr) {
         if (arr.size () < this.MAX_WATCH) {
             return true;
         }
