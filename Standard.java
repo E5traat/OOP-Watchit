@@ -16,6 +16,10 @@ public class Standard extends Subscription {
 
     }
 
+    public Standard() {
+
+    }
+
     public static void addSubscription(Standard sc) {
         arrStandard.add (sc);
     }//end of method
