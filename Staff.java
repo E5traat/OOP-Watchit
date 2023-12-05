@@ -3,12 +3,12 @@ import java.util.ArrayList;
 
 public  class Staff {
 
-protected String firstName;
-protected String lastName;
-protected String gender;
-protected String nationality;
-protected int age;
-protected ArrayList<Movie> movies = new ArrayList<>();
+    protected String firstName;
+    protected String lastName;
+    protected String gender;
+    protected String nationality;
+    protected int age;
+    protected ArrayList<Movie> movies = new ArrayList<>();
 
     public String getFirstName() {
         return firstName;
