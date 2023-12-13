@@ -1,8 +1,9 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class CastList {
-    Scanner input = new Scanner (System.in);
+public class CastList implements Serializable {
+    static Scanner input = new Scanner (System.in);
     public static ArrayList<Cast> allActors = new ArrayList<> ();
 
     public void newCast() {
