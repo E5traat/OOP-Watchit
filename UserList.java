@@ -1,8 +1,9 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class UserList {
-    Scanner input = new Scanner (System.in);
+public class UserList implements Serializable {
+    static Scanner input = new Scanner (System.in);
     public static ArrayList<User> arr = new ArrayList<User> ();
 
     public int addUser(User u, String planInput) {
