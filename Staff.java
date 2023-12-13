@@ -1,7 +1,8 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 
 
-public  class Staff {
+public  class Staff implements Serializable {
 
     protected String firstName;
     protected String lastName;
