@@ -1,7 +1,8 @@
+import java.io.Serializable;
 import java.util.Scanner;
 
-public class Admin {
-    Scanner input = new Scanner (System.in);
+public class Admin implements Serializable {
+    static Scanner input = new Scanner (System.in);
     public static int number_of_admins = 0;
     private int id;
     private String username;
