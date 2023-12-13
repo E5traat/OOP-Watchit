@@ -96,6 +96,16 @@ public class CastList implements Serializable {
         System.out.println ("Age :" + actor.age);
         System.out.println ("Gender : " + actor.gender);
         System.out.println ("Nationality : " + actor.nationality);
+        System.out.println ("Movies : ");
+        ArrayList<Movie> actorMovies = actor.getMovies ();
+        if (actorMovies.isEmpty ()) {
+            System.out.println ("No Movies Assigned");
+        } else {
+            for (int i = 0; i < actor.getMovies ().size (); i++) {
+                System.out.println ("[" + (i + 1) + "]" + actorMovies.get (i).getTitle ());
+            }
+            System.out.println ();
+        }
     }
 
 }
