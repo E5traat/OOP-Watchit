@@ -1,6 +1,7 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Movie {
+public class Movie implements Serializable {
     private static int number_of_movies = 0;
     private int id;
     private int imdbScore;
