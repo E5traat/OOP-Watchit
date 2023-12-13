@@ -1,17 +1,11 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class AdminList {
-    Scanner input = new Scanner (System.in);
+public class AdminList implements Serializable {
+    static Scanner input = new Scanner (System.in);
     ArrayList<Admin> arrAdmin = new ArrayList<> ();
 
-    public AdminList() {
-        Admin a = new Admin ("admin", "admin", "zaid", "hany"
-                , "zaidhany112@gmail.com");
-        arrAdmin.add (a);
-
-
-    }
 
     public boolean adminExist(String username, String password) {
         for (Admin ad : arrAdmin) {
