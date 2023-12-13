@@ -1,6 +1,7 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class UserWatchRecordList {
+public class UserWatchRecordList implements Serializable {
     static ArrayList<UserWatchRecord> watchRecords = new ArrayList<> ();
 
     public static void addRecord(UserWatchRecord r) {
