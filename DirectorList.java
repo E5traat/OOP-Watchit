@@ -1,9 +1,10 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class DirectorList {
+public class DirectorList implements Serializable {
     public static ArrayList<Director> directorsList = new ArrayList<> ();
-    Scanner input = new Scanner (System.in);
+    static Scanner input = new Scanner (System.in);
 
 
     public void newDirector() {
