@@ -1,7 +1,8 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Cast extends Staff {
+public class Cast extends Staff implements Serializable {
     public Cast() {
     }
 
