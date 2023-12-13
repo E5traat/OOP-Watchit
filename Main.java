@@ -49,7 +49,9 @@ public class Main implements Serializable {
                     } else {
                         System.out.println ("\t\tinvalid username or password");
                         System.out.println ("\t\tplease try again");
-                        continue;
+                        System.out.println ();
+                        System.out.println ();
+                      break;
                     }
                 }
             } else if (choice == 2) //sign up user
