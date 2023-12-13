@@ -1,18 +1,24 @@
+import java.io.IOException;
+import java.io.Serializable;
 import java.util.Scanner;
 
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.
-public class Main {
+public class Main implements Serializable {
     static Scanner input = new Scanner (System.in);
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException, IOException, ClassNotFoundException {
 
-        AdminList a1 = new AdminList ();
-        MovieList m1 = new MovieList ();
+        AdminList a1 = new AdminList();
+
+        MovieList m1 = new MovieList();
         CastList c1 = new CastList ();
         UserList u1 = new UserList ();
         DirectorList d1 = new DirectorList ();
         System.out.println (a1.toString ());
+        IOClass.InputData(a1, m1, c1, u1, d1);
+
+
 
         while (true) {
             boolean adminExist = false;
@@ -253,6 +259,6 @@ public class Main {
 
 
         }
-
+        IOClass.OutputData(a1, m1, c1, u1, d1);
     }
 }
