@@ -1,6 +1,7 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Director extends Staff {
+public class Director extends Staff implements Serializable{
 
     public Director() {
     }
