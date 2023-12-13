@@ -348,6 +348,10 @@ public class MovieList implements Serializable {
             c1.add (CastList.allActors.get (actorIndex - 1));
             m1.setArrCast (c1);
             arr.set (index - 1, m1);
+            ArrayList<Movie> actorMovies = new ArrayList<>
+                    ( CastList.allActors.get (actorIndex - 1).getMovies ());
+            actorMovies.add (m1);
+            CastList.allActors.get (actorIndex - 1).setMovies (actorMovies);
         } else if (i == 2) {
             int actorIndex;
             System.out.println ("Enter the number of actor:");
