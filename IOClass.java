@@ -56,35 +56,5 @@ public class IOClass {
         DirectorList.directorsList = (ArrayList<Director>) ois.readObject();
         ois.close();
     }
-    public static void OutputAdmin(AdminList a) throws IOException {
-        File adminList = new File("adminList.txt");
-        ObjectOutputStream ooas = new ObjectOutputStream(new FileOutputStream(adminList));
-        ooas.writeObject(a);
-        ooas.close();
 
-
-    }
-
-    public static void OutputMovie(ArrayList <Movie> m) throws IOException {
-        File movieList = new File("movieList.txt");
-        ObjectOutputStream ooms = new ObjectOutputStream(new FileOutputStream(movieList));
-        ooms.writeObject(m);
-        ooms.close();
-    }
-
-    public static AdminList InputAdmin() throws IOException, ClassNotFoundException {
-        File adminList = new File("adminList.txt");
-        ObjectInputStream ois = new ObjectInputStream(new FileInputStream(adminList));
-        AdminList temp = (AdminList) ois.readObject();
-        ois.close();
-        return temp;
-    }
-
-    public static ArrayList <Movie> InputMovie() throws IOException, ClassNotFoundException {
-        File movieList = new File("movieList.txt");
-        ObjectInputStream ois = new ObjectInputStream(new FileInputStream(movieList));
-        ArrayList <Movie> temp = (ArrayList <Movie>) ois.readObject();
-        ois.close();
-        return temp;
-    }
 }
