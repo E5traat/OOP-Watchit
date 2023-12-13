@@ -1,8 +1,9 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class MovieList {
-    Scanner input = new Scanner (System.in);
+public class MovieList implements Serializable {
+    static Scanner input = new Scanner (System.in);
     public static ArrayList<Movie> arr = new ArrayList<> ();
 
     public void newMovie() {
