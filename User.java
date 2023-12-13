@@ -1,7 +1,8 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class User {
+public class User implements Serializable {
     Basic b = new Basic ();
     Standard st = new Standard ();
     Premium pr = new Premium ();
@@ -18,7 +19,7 @@ public class User {
     public ArrayList<Movie> historyMovies = new ArrayList<Movie> ();
 
 
-    Scanner input = new Scanner (System.in);
+    static Scanner input = new Scanner (System.in);
 
     public User() {
         instance++;
