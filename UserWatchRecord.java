@@ -1,7 +1,8 @@
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class UserWatchRecord {
+public class UserWatchRecord implements Serializable {
     private int userID;
     private String movieName;
     private String movieWatchDate;
