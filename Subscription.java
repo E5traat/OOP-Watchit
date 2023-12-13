@@ -1,3 +1,4 @@
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -6,7 +7,7 @@ import java.util.ArrayList;
 
 import static java.lang.Math.max;
 
-public abstract class Subscription {
+public abstract class Subscription implements Serializable {
 
     public static int[] month = new int[13];
     protected int userId;
