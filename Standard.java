@@ -1,7 +1,8 @@
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
-public class Standard extends Subscription {
+public class Standard extends Subscription implements Serializable {
 
     public static final int STANDARD_PRICE = 35;
     public static final int MAX_WATCH = 10;
