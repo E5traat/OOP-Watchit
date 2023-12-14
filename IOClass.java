@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 public class IOClass {
 
-    public static void OutputData(AdminList a, MovieList m, CastList c, UserList u, DirectorList d) throws IOException {
+    public static void OutputData(AdminList a) throws IOException {
         File file = new File("adminList.txt");
         ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file));
         oos.writeObject(a.arrAdmin);
@@ -30,7 +30,7 @@ public class IOClass {
         oos.close();
     }
 
-    public static void InputData(AdminList a, MovieList m, CastList c, UserList u, DirectorList d) throws IOException, ClassNotFoundException {
+    public static void InputData(AdminList a) throws IOException, ClassNotFoundException {
         File file = new File("adminList.txt");
         ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file));
         a.arrAdmin = (ArrayList<Admin>) ois.readObject();
@@ -56,5 +56,5 @@ public class IOClass {
         DirectorList.directorsList = (ArrayList<Director>) ois.readObject();
         ois.close();
     }
-    
+
 }
