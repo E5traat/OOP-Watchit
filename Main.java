@@ -16,7 +16,7 @@ public class Main implements Serializable {
         UserList u1 = new UserList ();
         DirectorList d1 = new DirectorList ();
         System.out.println (a1.toString ());
-        IOClass.InputData(a1, m1, c1, u1, d1);
+        IOClass.InputData(a1);
 
 
 
@@ -49,9 +49,7 @@ public class Main implements Serializable {
                     } else {
                         System.out.println ("\t\tinvalid username or password");
                         System.out.println ("\t\tplease try again");
-                        System.out.println ();
-                        System.out.println ();
-                      break;
+                        continue;
                     }
                 }
             } else if (choice == 2) //sign up user
@@ -261,6 +259,6 @@ public class Main implements Serializable {
 
 
         }
-        IOClass.OutputData(a1, m1, c1, u1, d1);
+        IOClass.OutputData(a1);
     }
 }
