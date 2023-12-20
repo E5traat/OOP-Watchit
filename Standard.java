@@ -36,7 +36,7 @@ public class Standard extends Subscription implements Serializable {
     }//end of method
 
     public boolean maxWatch(ArrayList arr) {
-        if (arr.size () < this.MAX_WATCH) {
+        if (arr.size () < Standard.MAX_WATCH) {
             return true;
         }
         return false;
@@ -45,9 +45,9 @@ public class Standard extends Subscription implements Serializable {
     public boolean subDays(int userId) {
         for (int i = 0; i < arrStandard.size (); i++) {
             if (arrStandard.get (i).getUserId () == userId) {
-                int differnce = Subscription.getDifferenceDays
+                int difference = Subscription.getDifferenceDays
                         (arrStandard.get (i).getStartDate ());
-                if (differnce <= 30)
+                if (difference <= 30)
                     return true;
                 else
                     break;
