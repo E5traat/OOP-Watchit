@@ -20,26 +20,6 @@ public abstract class Subscription implements Serializable {
         return userId;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
-
-    public int getPrice() {
-        return price;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
-    }
-
-    public String getPlan() {
-        return plan;
-    }
-
-    public void setPlan(String plan) {
-        this.plan = plan;
-    }
-
     public String getStartDate() {
         return startDate;
     }
@@ -78,9 +58,8 @@ public abstract class Subscription implements Serializable {
     public static int getDifferenceDays(String startDate1) {
         LocalDate oldDate = LocalDate.parse (startDate1);
         LocalDate currentDate = LocalDate.now ();
-        int daysDifference = (int) ChronoUnit.DAYS.between (oldDate, currentDate);
 
-        return daysDifference;
+        return (int) ChronoUnit.DAYS.between (oldDate, currentDate);
     }
 
     public static void subscribeAgain(int userIndex) {
@@ -114,27 +93,26 @@ public abstract class Subscription implements Serializable {
                 }
             }
         }
-        while (UserList.arr.get (userIndex).historyMovies.size () != 0) {
+        while (!UserList.arr.get(userIndex).historyMovies.isEmpty()) {
             UserList.arr.get (userIndex).historyMovies.remove
                     (UserList.arr.get (userIndex).historyMovies.size () - 1);
         }
     }
 
-    public static void mostSuscribedPlan() {
+    public static void mostSubscribedPlan() {
 
-        if (Basic.arrBasic.size () == 0 && Standard.arrStandard.size () == 0
-                && Premium.arrPremium.size () == 0) {
-            System.out.println ("\t\t there is no subscribtions till now");
+        if (Basic.arrBasic.isEmpty() && Standard.arrStandard.isEmpty()
+                && Premium.arrPremium.isEmpty()) {
+            System.out.println ("\t\t there are no subscriptions till now");
         } else {
-            System.out.println ("\t\tThese all are subscribtions");
+            System.out.println ("\t\tThese all are subscriptions");
             System.out.println ();
             System.out.print ("Basic = " + Basic.arrBasic.size () + "\t");
             System.out.print ("Standard = " + Standard.arrStandard.size () + "\t");
-            System.out.print ("Premuim = " + Premium.arrPremium.size ());
-            System.out.println ();
+            System.out.print ("Premium = " + Premium.arrPremium.size () + "\n");
             if (Basic.arrBasic.size () == Standard.arrStandard.size () &&
                     Basic.arrBasic.size () == Premium.arrPremium.size ()) {
-                System.out.println ("All plans are equal in number of subsctiptions");
+                System.out.println ("All plans are equal in number of subscriptions");
             } else if (Basic.arrBasic.size () >= Standard.arrStandard.size () &&
                     Basic.arrBasic.size () >= Premium.arrPremium.size ()) {
                 System.out.println ("Basic is the most subscribed plan");
@@ -148,7 +126,7 @@ public abstract class Subscription implements Serializable {
         }
     }
 
-    public static void monthMostRevnue() {
+    public static void monthMostRevenue() {
         int maxi = -1;
         int monthNum = 0;
         for (int i = 0; i < 13; i++) {
@@ -159,15 +137,15 @@ public abstract class Subscription implements Serializable {
             }
         }
         if (maxi != 0) {
-            System.out.print ("Month " + monthNum + " had the most revnue ");
+            System.out.print ("Month " + monthNum + " had the most revenue ");
             System.out.print ("to the application");
-            System.out.println ("revnue = " + month[monthNum]);
+            System.out.println ("revenue = " + month[monthNum]);
         } else {
-            System.out.println ("\t\tthere is no revnue till now");
+            System.out.println ("\t\tthere is no revenue till now");
         }
     }
 
-    public static void updateSubscribtion(int userId, String oldSub, String newSub) {
+    public static void updateSubscription(int userId, String oldSub, String newSub) {
         int index = 0;
         if (oldSub.equals ("Basic")) {
             for (int i = 0; i < Basic.arrBasic.size (); i++)//searching for index
@@ -220,12 +198,6 @@ public abstract class Subscription implements Serializable {
         }
     }
 
-    public void userSubcribtionDetails() {
-        System.out.println ("User id : " + this.userId);
-        System.out.println ("Subscription : " + this.plan);
-        System.out.println ("price : " + this.price);
-        System.out.println ("start date of subscription : " + this.startDate);
-    }
 
     public boolean maxWatch(ArrayList arr) {
         return false;
