@@ -71,19 +71,17 @@ public class AdminList implements Serializable {
     public void updateAdminMenu(int index)
     {  while(true) {
         //username password firstName lastName email
-        System.out.println ("\tWhich one of informations do you want to update it");
-        System.out.println ();
+        System.out.println ("\tWhat information do you want to update it \n");
         System.out.println ("[1] Username\t[2] Password");
         System.out.println ("[3] First name\t[4] Last name");
         System.out.println ("[5] Email\t[6]back");
         int choice = input.nextInt ();
         if (choice==6)
             break;
-        else if(choice<1 && choice>6)
+        else if(choice<1 || choice>6)
         {
             System.out.println ("\t\tinvalid operation");
-            System.out.println ("\tselect one of the operations below");
-            System.out.println ();
+            System.out.println ("\tselect one of the operations below\n");
         }
         else
         {
@@ -130,8 +128,7 @@ public class AdminList implements Serializable {
 
 
     public void newAdmin() {
-        System.out.println ("please fullfill the required details");
-        System.out.println ();
+        System.out.println ("please fulfill the required details\n");
         System.out.println ("Enter username");
         String username = input.next ();
         System.out.println ("Enter password");
